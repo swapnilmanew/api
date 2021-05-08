@@ -30,7 +30,7 @@ const Index = () => {
     }
 
     const updateData = (e) => {
-        let data = {name, email};
+        let data = { name, email };
         e.preventDefault();
         console.log(name, email);
 
@@ -38,12 +38,14 @@ const Index = () => {
             method: 'PUT',
             headers:
             {
-                "Content-Type": "application/json; Charset=UTF-8"
+                "Accept": "application/json",
+                "Content-Type": "application/json"
             },
-            body: JSON.stringify({data})
+            body: JSON.stringify(data)
         })
             .then((res) => console.log(res))
             .catch((err) => console.log(err))
+        getUsers();
     }
 
     return (
