@@ -17,33 +17,33 @@ const Index = () => {
 
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
-
+    const [id, setId] = useState("");
 
     const editData = async (id) => {
         console.log(id);
         const api = await fetch(`http://localhost:3004/userdata/${id}`);
         const data = await api.json();
+        setId(data.id);
         setName(data.name)
         setEmail(data.email);
 
     }
 
     const updateData = (e) => {
+        let data = {name, email};
         e.preventDefault();
         console.log(name, email);
 
-        // fetch(`http://localhost:3004/userdata/${id}`, {
-        //     method: 'PUT',
-        //     headers:
-        //     {
-        //         "Content-Type": "application/json; Charset=UTF-8"
-        //     },
-        //     body: JSON.stringify({
-
-        //     })
-        // })
-        //     .then((res) => console.log(res))
-        //     .catch((err) => console.log(err))
+        fetch(`http://localhost:3004/userdata/${id}`, {
+            method: 'PUT',
+            headers:
+            {
+                "Content-Type": "application/json; Charset=UTF-8"
+            },
+            body: JSON.stringify({data})
+        })
+            .then((res) => console.log(res))
+            .catch((err) => console.log(err))
     }
 
     return (
