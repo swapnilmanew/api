@@ -36,7 +36,7 @@ const Index = () => {
                                                 <th>{user.id}</th>
                                                 <th>{user.name}</th>
                                                 <th>{user.email}</th>
-                                                <th><button onclick={ } className="btn bg-success text-white">Edit</button></th>
+                                                <th><button onclick={asdf } className="btn bg-success text-white">Edit</button></th>
                                                 <th><button onclick={ } className="btn bg-danger text-white">Delete</button></th>
                                             </tr>
                                         </>
