@@ -16,7 +16,18 @@ const Index = () => {
     }, []);
 
     const editData = (id) => {
-        alert(id)
+        fetch(`http://localhost:3004/userdata/${id}`, {
+            method: 'PUT',
+            headers:
+            {
+                "Content-Type": "application/json; Charset=UTF-8"
+            },
+            body: JSON.stringify({
+
+            })
+        })
+            .then((res) => console.log(res))
+            .catch((err) => console.log(err))
     }
 
     const deleteData = (id) => {
@@ -27,7 +38,7 @@ const Index = () => {
             <div className="container">
                 <h1 className="text-center fw-bold display-4 mb-3">All Users</h1>
                 <div className="row">
-                    <div className="col-12 col-sm-12 col-md-12 m-auto">
+                    <div className="col-12 col-sm-12 col-md-7 m-auto">
                         <table className="table table-bordered table-striped">
                             <tr>
                                 <th>Id</th>
@@ -52,6 +63,13 @@ const Index = () => {
                                 })
                             }
                         </table>
+                    </div>
+                    <div className="col-12 col-md-5 m-auto">
+                        <form action="">
+                            <input type="text" name="" id="" className="form-control" onChange={ } value={ } />
+                            <input type="text" name="" id="" className="form-control" onChange={ } value={ } />
+                            button.btn.btn-info
+                        </form>
                     </div>
                 </div>
             </div>
