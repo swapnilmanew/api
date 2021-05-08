@@ -12,11 +12,11 @@ const Add = () => {
         e.preventDefault();
         fetch("http://localhost:3004/userdata", {
             method: "POST",
-            header: {
+            headers: {
                 "Accept": "application/json",
                 "Application/type": "application/json"
             },
-            body: JSON.stringify({ name, email })
+            body: JSON.stringify(data)
         }).then((response) => { console.log(response) })
             .catch((error) => {
                 console.log(error + "")
