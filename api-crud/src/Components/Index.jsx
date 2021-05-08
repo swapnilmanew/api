@@ -15,20 +15,24 @@ const Index = () => {
         getUsers();
     }, []);
 
-    const editData = (id) => {
-        fetch(`http://localhost:3004/userdata/${id}`, {
-            method: 'PUT',
-            headers:
-            {
-                "Content-Type": "application/json; Charset=UTF-8"
-            },
-            body: JSON.stringify({
+    const [name, setName] = useState("");
+    const [email, setEmail] = useState("");
 
-            })
-        })
-            .then((res) => console.log(res))
-            .catch((err) => console.log(err))
-    }
+
+    const editData = (id) => {
+    //     fetch(`http://localhost:3004/userdata/${id}`, {
+    //         method: 'PUT',
+    //         headers:
+    //         {
+    //             "Content-Type": "application/json; Charset=UTF-8"
+    //         },
+    //         body: JSON.stringify({
+
+    //         })
+    //     })
+    //         .then((res) => console.log(res))
+    //         .catch((err) => console.log(err))
+    // }
 
     const deleteData = (id) => {
         alert(id)
@@ -66,9 +70,9 @@ const Index = () => {
                     </div>
                     <div className="col-12 col-md-5 m-auto">
                         <form action="">
-                            <input type="text" name="" id="" className="form-control" onChange={ } value={ } />
-                            <input type="text" name="" id="" className="form-control" onChange={ } value={ } />
-                            button.btn.btn-info
+                            <input type="text" name="" id="" className="form-control my-3" onChange={(e) => setName(e.target.value)} value={name} placeholder="Name" />
+                            <input type="text" name="" id="" className="form-control my-3" onChange={(e) => setEmail(e.target.value)} value={email} placeholder="Email" />
+                            <button className="btn btn-info">Edit</button>
                         </form>
                     </div>
                 </div>
