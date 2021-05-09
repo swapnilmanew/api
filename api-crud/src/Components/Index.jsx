@@ -44,7 +44,7 @@ const Index = () => {
             body: JSON.stringify(data)
         })
             .then((res) => {
-                console.log(res);
+                // console.log(res);
                 getUsers();
             })
             .catch((err) => console.log(err))
@@ -56,7 +56,7 @@ const Index = () => {
             method: "DELETE"
         })
             .then((res) => {
-                console.log(res);
+                // console.log(res);
                 getUsers();
             })
             .catch((err) => console.log(err))
