@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import "../index.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { NavLink } from 'react-router-dom';
 const Index = () => {
 
     const [user, setUser] = useState([]);
@@ -9,11 +8,13 @@ const Index = () => {
     const getUsers = async () => {
         const data = await fetch("http://localhost:3004/userdata");
         const users = await data.json();
+        console.log(users);
         setUser(users);
     }
     useEffect(() => {
         getUsers();
     }, []);
+
 
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
@@ -93,6 +94,7 @@ const Index = () => {
                             }
                         </table>
                     </div>
+
                     <div className="col-12 col-md-5 m-auto">
                         <form action="">
                             <input type="text" name="" id="" className="form-control my-3" onChange={(e) => setName(e.target.value)} value={name} placeholder="Name" />
