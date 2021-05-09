@@ -14,7 +14,7 @@ const Add = () => {
             method: "POST",
             headers: {
                 "Accept": "application/json",
-                "Application/type": "application/json"
+                "Content-Type": "application/json"
             },
             body: JSON.stringify(data)
         }).then((response) => { console.log(response) })
