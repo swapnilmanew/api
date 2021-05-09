@@ -43,9 +43,23 @@ const Index = () => {
             },
             body: JSON.stringify(data)
         })
-            .then((res) => console.log(res))
+            .then((res) => {
+                console.log(res);
+                getUsers();
+            })
             .catch((err) => console.log(err))
-        getUsers();
+
+    }
+
+    const deleteData = (id) => {
+        fetch(`http://localhost:3004/userdata/${id}`, {
+            method: "DELETE"
+        })
+            .then((res) => {
+                console.log(res);
+                getUsers();
+            })
+            .catch((err) => console.log(err))
     }
 
     return (
@@ -71,7 +85,7 @@ const Index = () => {
                                                 <th>{user.name}</th>
                                                 <th>{user.email}</th>
                                                 <th><button onClick={() => editData(user.id)} className="btn bg-success text-white">Edit</button></th>
-                                                {/* <th><button onClick={() => deleteData(user.id)} className="btn bg-danger text-white">Delete</button></th> */}
+                                                <th><button onClick={() => deleteData(user.id)} className="btn bg-danger text-white">Delete</button></th>
                                             </tr>
                                         </>
                                     )
